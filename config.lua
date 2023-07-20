@@ -7,8 +7,6 @@ vim.opt.colorcolumn = "100"
 vim.opt.list = true
 vim.opt.listchars = { space = "·", tab = "--" }
 
---lvim.colorscheme = "projekt0n/github-nvim-theme"
-
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
   { command = "eslint", filetypes = { "typescript", "typescriptreact", "vue" }}
