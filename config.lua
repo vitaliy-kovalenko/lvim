@@ -5,7 +5,16 @@
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "100"
 vim.opt.list = true
-vim.opt.listchars = { space = "·", tab = "--" }
+vim.opt.listchars = { space = "·", tab = " -" }
+
+lvim.transparent_window = true
+lvim.builtin.lualine = {
+  active = true,
+  options = {
+    section_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
+  },
+}
 
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
@@ -15,6 +24,8 @@ linters.setup({
 lvim.plugins = {
   "mbbill/undotree"
 }
+
+lvim.builtin.bufferline.active = false
 
 lvim.keys.normal_mode["<leader>pv"] = ":Ex<CR>"
 lvim.keys.normal_mode["<leader>u"] = ":UndotreeToggle<CR>"
