@@ -6,6 +6,7 @@ vim.opt.relativenumber = true
 vim.opt.colorcolumn = "100"
 vim.opt.list = true
 vim.opt.listchars = { space = "·", tab = " -" }
+vim.opt.tabstop = 2
 
 lvim.transparent_window = true
 lvim.builtin.lualine = {
@@ -26,8 +27,16 @@ lvim.plugins = {
 }
 
 lvim.builtin.bufferline.active = false
+lvim.keys.normal_mode["<leader>bb"] = ":bnext<CR>"
+lvim.keys.normal_mode["<leader>bn"] = ":bprev<CR>"
 
 lvim.keys.normal_mode["<leader>pv"] = ":Ex<CR>"
 lvim.keys.normal_mode["<leader>u"] = ":UndotreeToggle<CR>"
 lvim.keys.normal_mode["<leader>t"] = ":ToggleTerm<CR>"
+lvim.keys.normal_mode["<leader>nh"] = ":nohlsearch<CR>"
 
+function Paint_rule()
+  vim.cmd([[highlight ColorColumn guibg=#2C3251]])
+end
+
+lvim.keys.normal_mode["<leader>pr"] = ":lua Paint_rule()<CR>"
